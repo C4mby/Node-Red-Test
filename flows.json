@@ -730,10 +730,10 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
+        "topic": "hello",
         "payload": "",
         "payloadType": "date",
-        "x": 1000,
+        "x": 1020,
         "y": 100,
         "wires": [
             [
