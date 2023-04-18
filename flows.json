@@ -1,0 +1,715 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8a55cb403bd4bfcb",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Docker PostGres",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "8af6e83606ae68d2",
+            "83c0a699762bcd93",
+            "176694e23e864d21"
+        ],
+        "x": 174,
+        "y": 179,
+        "w": 652,
+        "h": 82
+    },
+    {
+        "id": "e87d2596793bb33c",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Manipulate Array",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "b9213594954b26f0",
+            "bf9c2c1237acd4b3",
+            "cc178a912ad5107d",
+            "eb17a5269d9e33e0",
+            "703e80fd4721159b",
+            "16c9a7aeae8f2ee8",
+            "51912d2c4508deda",
+            "e8c7d79fcaa8b009",
+            "3ce539c6db4b7c70",
+            "6cd37d42f14ac00d",
+            "043efa75ea2e33b2",
+            "a40f73bb246530eb"
+        ],
+        "x": 174,
+        "y": 319,
+        "w": 652,
+        "h": 382
+    },
+    {
+        "id": "ead14733ef1ed6d3",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Aws EC2",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "60dcfaa1e803927a",
+            "5cf7532c7d01a4a5",
+            "7884689631232a12",
+            "c8cd538303d18027"
+        ],
+        "x": 174,
+        "y": 939,
+        "w": 452,
+        "h": 142
+    },
+    {
+        "id": "bdd4d2d7a06abae4",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Docker LocalHost",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "232f6923eb16bdea",
+            "f897da64ac4605db",
+            "79186b068a2212bf",
+            "ca8e1090d9d3875f"
+        ],
+        "x": 174,
+        "y": 739,
+        "w": 432,
+        "h": 142
+    },
+    {
+        "id": "694c2f93e85f9e70",
+        "type": "postgreSQLConfig",
+        "name": "",
+        "host": "172.17.0.2",
+        "hostFieldType": "str",
+        "port": "5432",
+        "portFieldType": "num",
+        "database": "postgres",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "postgres",
+        "userFieldType": "str",
+        "password": "docker",
+        "passwordFieldType": "str"
+    },
+    {
+        "id": "1e7585acb07513e5",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "172.17.0.6",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "dac068677b41a6e0",
+        "type": "mqtt-broker",
+        "name": "Aws EC2",
+        "broker": "ec2-13-40-223-46.eu-west-2.compute.amazonaws.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "test/status/nrLocal_QMSLT64",
+        "birthQos": "0",
+        "birthRetain": "true",
+        "birthPayload": "online",
+        "birthMsg": {},
+        "closeTopic": "test/status/nrLocal_QMSLT64",
+        "closeQos": "0",
+        "closeRetain": "true",
+        "closePayload": "offline",
+        "closeMsg": {},
+        "willTopic": "test/status/nrLocal_QMSLT64",
+        "willQos": "0",
+        "willRetain": "true",
+        "willPayload": "unexpected",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3cc11d24.ff01a2",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "WARNING: please check you have started this container with a volume that is mounted to /data\\n otherwise any flow changes are lost when you redeploy or upgrade the container\\n (e.g. upgrade to a more recent node-red docker image).\\n  If you are using named volumes you can ignore this warning.\\n Double click or see info side panel to learn how to start Node-RED in Docker to save your work",
+        "info": "\nTo start docker with a bind mount volume (-v option), for example:\n\n```\ndocker run -it -p 1880:1880 -v /home/user/node_red_data:/data --name mynodered nodered/node-red\n```\n\nwhere `/home/user/node_red_data` is a directory on your host machine where you want to store your flows.\n\nIf you do not do this then you can experiment and redploy flows, but if you restart or upgrade the container the flows will be disconnected and lost. \n\nThey will still exist in a hidden data volume, which can be recovered using standard docker techniques, but that is much more complex than just starting with a named volume as described above.",
+        "x": 350,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "8af6e83606ae68d2",
+        "type": "postgresql",
+        "z": "f6f2187d.f17ca8",
+        "g": "8a55cb403bd4bfcb",
+        "name": "",
+        "query": "SELECT * FROM tblTest;",
+        "postgreSQLConfig": "694c2f93e85f9e70",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 510,
+        "y": 220,
+        "wires": [
+            [
+                "83c0a699762bcd93"
+            ]
+        ]
+    },
+    {
+        "id": "83c0a699762bcd93",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "g": "8a55cb403bd4bfcb",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "176694e23e864d21",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "8a55cb403bd4bfcb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 220,
+        "wires": [
+            [
+                "8af6e83606ae68d2"
+            ]
+        ]
+    },
+    {
+        "id": "b9213594954b26f0",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "e87d2596793bb33c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "add",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 360,
+        "wires": [
+            [
+                "bf9c2c1237acd4b3"
+            ]
+        ]
+    },
+    {
+        "id": "bf9c2c1237acd4b3",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "e87d2596793bb33c",
+        "name": "add to array",
+        "func": "var arr = flow.get(\"arrTest\")||[];\nvar obj = {payload:{\"ts\":msg.payload,\"top\":msg.topic}};\n\narr.push(obj);\n\nflow.set(\"arrTest\",arr);\n\nvar newMsg = {payload:arr};\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 360,
+        "wires": [
+            [
+                "cc178a912ad5107d"
+            ]
+        ]
+    },
+    {
+        "id": "cc178a912ad5107d",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "g": "e87d2596793bb33c",
+        "name": "added",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 710,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "eb17a5269d9e33e0",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "e87d2596793bb33c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "position",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "insert",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 460,
+        "wires": [
+            [
+                "703e80fd4721159b"
+            ]
+        ]
+    },
+    {
+        "id": "703e80fd4721159b",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "e87d2596793bb33c",
+        "name": "insert to array",
+        "func": "var arr = flow.get(\"arrTest\")||[];\nvar obj = {payload:{\"ts\":msg.payload,\"top\":msg.topic}};\n\narr.splice(msg.position,0,obj);\n\nflow.set(\"arrTest\",arr);\n\nvar newMsg = {payload:arr};\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 460,
+        "wires": [
+            [
+                "16c9a7aeae8f2ee8"
+            ]
+        ]
+    },
+    {
+        "id": "16c9a7aeae8f2ee8",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "g": "e87d2596793bb33c",
+        "name": "inserted",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 720,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "51912d2c4508deda",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "e87d2596793bb33c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "position",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "remove",
+        "payload": "",
+        "payloadType": "date",
+        "x": 310,
+        "y": 560,
+        "wires": [
+            [
+                "e8c7d79fcaa8b009"
+            ]
+        ]
+    },
+    {
+        "id": "e8c7d79fcaa8b009",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "e87d2596793bb33c",
+        "name": "remove from array",
+        "func": "var arr = flow.get(\"arrTest\")||[];\n\nvar removed = arr.splice(msg.position,1);\n\nflow.set(\"arrTest\",arr);\n\nvar newMsg = {payload:arr};\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 560,
+        "wires": [
+            [
+                "3ce539c6db4b7c70"
+            ]
+        ]
+    },
+    {
+        "id": "3ce539c6db4b7c70",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "g": "e87d2596793bb33c",
+        "name": "removed",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 720,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "6cd37d42f14ac00d",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "e87d2596793bb33c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "position",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "move",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 660,
+        "wires": [
+            [
+                "043efa75ea2e33b2"
+            ]
+        ]
+    },
+    {
+        "id": "043efa75ea2e33b2",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "e87d2596793bb33c",
+        "name": "move down in array",
+        "func": "var arr = flow.get(\"arrTest\")||[];\n\nvar removed = arr.splice(msg.position,1);\n\narr.splice((msg.position + 1), 0, removed[0]);\narr[msg.position + 1].payload.top = msg.topic;\n\nflow.set(\"arrTest\",arr);\n\nvar newMsg = {payload:arr};\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 660,
+        "wires": [
+            [
+                "a40f73bb246530eb"
+            ]
+        ]
+    },
+    {
+        "id": "a40f73bb246530eb",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "g": "e87d2596793bb33c",
+        "name": "moved",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 710,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "60dcfaa1e803927a",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "g": "ead14733ef1ed6d3",
+        "name": "",
+        "topic": "test",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "dac068677b41a6e0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 980,
+        "wires": [
+            [
+                "5cf7532c7d01a4a5"
+            ]
+        ]
+    },
+    {
+        "id": "5cf7532c7d01a4a5",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "g": "ead14733ef1ed6d3",
+        "name": "Mqtt AWS EC2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "7884689631232a12",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "ead14733ef1ed6d3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 1040,
+        "wires": [
+            [
+                "c8cd538303d18027"
+            ]
+        ]
+    },
+    {
+        "id": "c8cd538303d18027",
+        "type": "mqtt out",
+        "z": "f6f2187d.f17ca8",
+        "g": "ead14733ef1ed6d3",
+        "name": "",
+        "topic": "test",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "dac068677b41a6e0",
+        "x": 470,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "232f6923eb16bdea",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "bdd4d2d7a06abae4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 840,
+        "wires": [
+            [
+                "ca8e1090d9d3875f"
+            ]
+        ]
+    },
+    {
+        "id": "f897da64ac4605db",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "g": "bdd4d2d7a06abae4",
+        "name": "",
+        "topic": "test",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "1e7585acb07513e5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 780,
+        "wires": [
+            [
+                "79186b068a2212bf"
+            ]
+        ]
+    },
+    {
+        "id": "79186b068a2212bf",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "g": "bdd4d2d7a06abae4",
+        "name": "Mqtt Local",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "ca8e1090d9d3875f",
+        "type": "mqtt out",
+        "z": "f6f2187d.f17ca8",
+        "g": "bdd4d2d7a06abae4",
+        "name": "",
+        "topic": "test",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1e7585acb07513e5",
+        "x": 470,
+        "y": 840,
+        "wires": []
+    }
+]
